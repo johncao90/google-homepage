@@ -1,0 +1,74 @@
+
+
+/* Outline for easier layout. Remove when done
+* {
+    outline: red solid 1px;
+} */
+
+body {
+    background-color: white;
+    font-family: Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+#googlelogo {
+    display: block;
+    margin: 0 auto;
+}
+
+#searchbar {
+    /* Centering - Made into block, then side margins auto.
+    However, unsure if this is the best method */
+    display: block; 
+    width: 450px;
+    padding: 12px 20px 12px 45px;
+    margin: 20px auto;
+    box-sizing: border-box;
+
+    font-family: Arial, sans-serif;
+    font-size: 1em;
+
+    background-color: white;
+    background-image: url('https://t1.rbxcdn.com/0a0379e52de5f539b20b1828195ff823');
+    background-size: 5%;
+    background-position: 12px 10px;
+    background-repeat: no-repeat;
+
+    border-radius: 50px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #dbdbdb;
+}
+
+#searchbar:hover {
+    /* Add shadow */
+    box-shadow: 0px 2px 7px #dbdbdb;
+}
+
+/* Turned the buttons container into flex element for centering */
+#buttons-search {
+    display: flex;
+    justify-content: center;
+}
+
+/* Button styling */
+.button {
+    background-color: #f2f2f1;
+    border: none;
+    color: #65696e;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-family: Arial; sans-serif;
+    font-size: 0.9em;
+    margin: 10px 5px;
+}
+
+#language {
+    text-align: center;
+    font-size: 0.8em;
+    margin-top: 20px;
+}
