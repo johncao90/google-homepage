@@ -27,7 +27,7 @@ a:hover, a:active {
     list-style-type: none;
     display: flex;
     justify-content: flex-end;
-    /* align-items: center; */
+    align-items: center;
     flex-wrap: wrap;
 }
 
@@ -41,6 +41,10 @@ a:hover, a:active {
 
     /* Makes it so the black icon can be positioned with overlap */
     position: relative;
+}
+
+.topnav-link a:hover {
+    color: #484848;
 }
 
 #nav-app {
@@ -66,6 +70,13 @@ a:hover, a:active {
 #app-icon a:hover #nav-app-overlay {
     /* Makes black icon visible when hover */
     opacity: 1;
+}
+
+#nav-profile {
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    margin-right: 20px;
 }
 
 #googlelogo {
