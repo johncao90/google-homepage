@@ -1,9 +1,9 @@
+/* Google Homepage CSS by John Cao */
 
-
-/* Outline for easier layout. Remove when done
+/* Outline for easier layout. Comment out when done
 * {
-    outline: red solid 1px; */
-} 
+    outline: red solid 1px;
+} */
 
 body {
     background-color: white;
@@ -17,8 +17,12 @@ a {
 
 a:hover, a:active {
     text-decoration: underline;
-    /* "Removes" color change when clicked */
+    /* "Removes" link turning red when clicked */
     color: blue;
+}
+
+a:visited:hover {
+    color: #551A8B;
 }
 
 #topnav {
@@ -32,6 +36,7 @@ a:hover, a:active {
 }
 
 .topnav-link a {
+    /* Appearance of links in nav bar */
     display: block;
     color: #222222;
     margin: 15px 5px;
@@ -39,7 +44,7 @@ a:hover, a:active {
     font-family: Arial, sans-serif;
     font-size: 0.8em;
 
-    /* Makes it so the black icon can be positioned with overlap */
+    /* Makes it so the black app icon can be positioned with overlap */
     position: relative;
 }
 
@@ -54,16 +59,17 @@ a:hover, a:active {
 }
 
 #nav-app-overlay {
-    /* Black app icon in nav, invisible until hover */
+    /* Black app icon in nav */
     height: 17px;
     width: 17px;
 
-    /* This is to make it overlap with the  grey icon */
+    /* This is to make it overlap with the grey icon */
     position: absolute;
     top: 0;
     right: 0;
     padding-right: 5px;
-
+    
+    /* Invisible until hover */
     opacity: 0;
 }
 
@@ -73,6 +79,7 @@ a:hover, a:active {
 }
 
 #nav-profile {
+    /* Profile pic */
     width: 30px;
     height: 30px;
     border-radius: 50px;
@@ -80,8 +87,10 @@ a:hover, a:active {
 }
 
 #googlelogo {
-   /* This was to clear for the top nav's float, but ended up using flex:
+    /* The following was to clear for the top nav's float, but ended up using flex:
     clear: right; */
+
+    /* Centering horizontally */
     display: block;
     margin: 0 auto;
     /* "Centering" vertically */
@@ -92,7 +101,7 @@ a:hover, a:active {
     /* Centering - Made into block, then side margins auto.
     However, unsure if this is the best method */
     display: block; 
-    width: 450px;
+    width: 475px;
     padding: 12px 20px 12px 45px;
     margin: 20px auto;
     box-sizing: border-box;
@@ -101,6 +110,7 @@ a:hover, a:active {
     font-size: 1em;
 
     background-color: white;
+    /* That little magnifying glass */
     background-image: url('https://t1.rbxcdn.com/0a0379e52de5f539b20b1828195ff823');
     background-size: 5%;
     background-position: 12px 10px;
@@ -113,7 +123,7 @@ a:hover, a:active {
 }
 
 #searchbar:hover {
-    /* Add shadow */
+    /* Shadow when hover */
     box-shadow: 0px 2px 7px #dbdbdb;
 }
 
@@ -121,7 +131,6 @@ a:hover, a:active {
     /* Remove blue outline when selected */
     outline: none;
 }
-
 
 /* Turned the buttons container into flex element for centering */
 #buttons-search {
@@ -160,6 +169,88 @@ a:hover, a:active {
     margin-top: 20px;
 }
 
-#elvish {
+#pika {
     margin-left: 3px;
+}
+
+#footer {
+    /* Styling */
+    list-style-type: none;
+    background-color: #f2f2f2;
+    color: #616469;
+    font-family: Arial, sans-serif;
+    font-size: 0.95em;
+
+    /* Position */
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+
+    /* Container behavior: Decided grid with 3 boxes would be the best fit.
+    Also allows for simple responsive adjustments. */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2.75em 2.75em;
+    grid-template-areas:
+        "box1 box1"
+        "box2 box3";
+}
+
+.footer-link a {
+    /* Styling of links */
+    display: inline;
+    color: #616469;
+    margin: 15px 5px;
+    padding: 0 8px;
+    font-family: Arial, sans-serif;
+    font-size: 0.9em;
+}
+
+/* Behavior of grid boxes */
+#footer-box1 {
+    grid-area: box1;
+    padding-left: 33px;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #dbdbdb;
+    border-bottom: 1px solid #dbdbdb;
+    /* Struggled with align and justify items vs self.
+    Depending on the element, one might be better fit than the other.
+    In this box, align-items was preferable due to the borders. */
+}
+
+#footer-box2 {
+    grid-area: box2;
+    display: flex;
+    align-self: center;
+    margin-left: 20px;
+    /* Justify was not defined due to default being left */
+}
+
+#footer-box3 {
+    grid-area: box3;
+    display: flex;
+    align-self: center;
+    justify-self: self-end;
+    margin-right: 20px;
+    /* Justify defined to make it "stick" to the right */
+}
+
+@media (max-width: 805px) {
+    #footer {
+        /* Stacking the boxes in small window */
+        grid-template-columns: 1fr;
+        grid-template-rows: 2.75em 2.75em 2.75em;
+        grid-template-areas:
+            "box1"
+            "box3"
+            "box2";
+    }
+
+    #footer-box2, #footer-box3 {
+        justify-self: center;
+        margin-left: 0;
+        margin-right: 0;
+    }
 }
